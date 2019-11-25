@@ -50,7 +50,7 @@ plt.show()
                     <div class="fragment"><img data-src="plt1.png" style="height: 300pt"></div>
                 </section>
                 <section>
-                    <p>Changing the Label Type and Graph Thickness (A Simple Way?)</p>
+                    <p>Changing the Label Type and Graph Thickness</p>
                     <div class="fragment">
                         <pre><code class="line-numbers" data-trim contenteditable>
 import matplotlib.pyplot as plt
@@ -79,6 +79,7 @@ squares = [1, 4, 9, 16, 25]
 plt.plot(input_values, squares, linewidth=5)
 </code></pre>
                     </div>
+                    <div class="fragment"><img data-src="plt2x.png" style="height: 250pt"></div>
                 </section>
                 <section>
                     <p>Plotting and Styling Individual Points with scatter()</p>
@@ -254,15 +255,10 @@ plt.show()
                 </section>
                 <section>
                     <h3>Rolling Dice with Pygal</h3>
-                    <ul>
-                        <li class="fragment">
-                            <p>Change file name D:\Anaconda\Scripts, pip.exe and pip-script.exe to <b>condapip.exe</b> and <b>condapip-script.exe</b></p>
-                        </li>
-                    </ul>
                     <p class="fragment">In Anaconda Prompt</p>
                     <div class="fragment">
                         <pre><code class="line-numbers" data-trim contenteditable>
-condapip install Pygal
+pip install Pygal
 conda list
 </code></pre>
                     </div>
@@ -290,7 +286,11 @@ for roll_num in range(100):
     results.append(result)
 print(results)
 
-
+</code></pre>
+                    </div>
+                                        <div class="fragment">
+                        <pre><code class="line-numbers" data-trim contenteditable>
+#output
 [3, 4, 1, 3, 4, 3, 4, 6, 4, 4, 1, 3, 6, 5, 2, 6, 2, 5, 4, 3, 5, 4, 2, 4, 3, 1, 2, 6, 6,
  2, 3, 2, 1, 6, 6, 4, 3, 2, 3, 5, 2, 4, 3, 6, 3, 2, 1, 3, 2, 1, 4, 6, 6, 3, 3, 3, 2, 2,
   6, 3, 1, 6, 3, 4, 2, 6, 4, 6, 6, 3, 5, 5, 5, 5, 5, 3, 3, 1, 3, 2, 4, 2, 3, 1, 1, 4, 4,
@@ -483,7 +483,8 @@ July 01 2014
 %A Weekday name, such as Monday
 %B Month name, such as January
 %m Month, as a number (01 to 12)
-%d Day of the month, as a number (01 to 31) %Y Four-digit year, such as 2015
+%d Day of the month, as a number (01 to 31) 
+%Y Four-digit year, such as 2015
 %y Two-digit year, such as 15
 %H Hour, in 24-hour format (00 to 23)
 %I Hour, in 12-hour format (01 to 12)
@@ -619,7 +620,7 @@ with open(filename) as f:
                         <li>Data Visualization</li>
                         <ul>
                             <li>Reading: Python Crash Course, Chapter 15, 16</li>
-                            <li>Problem set 6</li>
+                            <li>Problem set 3</li>
                         </ul>
                     </ul>
                 </section>
