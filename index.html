@@ -646,7 +646,7 @@ for table, year in df:
     year_all.append(year)
 rank_all = pd.concat(table_all, keys=year_all,join='inner')
 rank_all = rank_all.reset_index(0)
-rank_all = rank_all.rename(columns={'level_0':'year'})
+rank_all = rank_all.rename(columns={'level_0':'Year'})
 </code></pre>
                     </div>
                     <div class="fragment">
@@ -703,7 +703,7 @@ Name: Happiness Rank, Length: 138, dtype: float64
                 <section>
                     <div class="fragment">
                         <pre><code class="line-numbers" data-trim contenteditable>
->>> g_1 = rank_all['Happiness Rank'].groupby([rank_all['Year'],
+>>> g_1 = rank_all['Happiness Rank'].groupby([rank_all['year'],
 ...:                                rank_all['Region']]).count()
 >>> g_1[2015]
 Region
@@ -897,29 +897,41 @@ Year  Country
       Albania         95
       Algeria         68
 ...      ...         ...
-2020  Venezuela       99
-      Vietnam         83
-      Yemen          146
+2020  Yemen          146
       Zambia         141
       Zimbabwe       151
 </code></pre>
                     </div>
                     <div class="fragment">
                         <pre><code class="line-numbers" data-trim contenteditable>
->>> interval_50 = pd.cut(g_7.loc[2015].values, bins = [1,50,100,150])
+>>> interval_50 = pd.cut(g_7.loc[2015].values, bins = [0,50,100,150,200])
 >>> interval_50
-[NaN, (50.0, 100.0], (50.0, 100.0], ..., , (50, 100], (100, 150]]
+[(150, 200], (50, 100], (50, 100], ..., (50, 100], (100, 150]]
 Length: 138
-Categories (3, interval[int64]): [(1, 50] < (50, 100] < (100, 150]]
+Categories (4, interval[int64]): 
+[(0, 50] < (50, 100] < (100, 150] < (150, 200]]
 
 >>> g_7.loc[2015].groupby(interval_50).count()
-(1, 50]       44
+(0, 50]       45
 (50, 100]     42
 (100, 150]    44
+(150, 200]     7
 </code></pre>
                     </div>
                 </section>
                 <section>
+                                        <div class="fragment">
+                        <pre><code class="line-numbers" data-trim contenteditable>
+>>> interval_50 = pd.cut(g_7.loc[2015].values, bins = [0,50,100,150,200],
+...: labels=['1-50','51-100','101-150','151-200'])
+
+>>> g_7.loc[2015].groupby(interval_50).count()
+1-50       45
+51-100     42
+101-150    44
+151-200     7
+</code></pre>
+                    </div>
                     <div class="fragment">
                         <pre><code class="line-numbers" data-trim contenteditable>
 >>> quantile = pd.qcut(g_7.loc[2015].values, 3)
