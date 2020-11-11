@@ -52,6 +52,7 @@ for filename in files:
     file_key = filename[:dot_position]
     t = (pd.read_csv(os.path.join(current_path,filename)), int(file_key))
     df.append(t)
+os.chdir('..')
 
 # [(..., 2015), (..., 2016), (..., 2017),..., (..., 2020)]
 </code></pre>
@@ -1015,6 +1016,7 @@ for filename in files:
     file_key = filename[:dot_position]
     t = (pd.read_csv(os.path.join(current_path,filename)), int(file_key))
     df.append(t)
+os.chdir('..')
 </code></pre>
                     </div>
                     <div class="fragment">
@@ -1042,7 +1044,6 @@ for i in year_all:
                     <div class="fragment">
                         <pre><code class="line-numbers" data-trim contenteditable>
 # 创建figures文件夹用来放图片
-os.chdir('..')  
 exist=os.path.exists('figures')  
 if not exist:
     os.mkdir('figures')
